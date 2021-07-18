@@ -12,7 +12,7 @@ $(document).ready(function () {
     let promiseFunction = fetchAllContactsFromServer();
     promiseFunction.then(responseData => {
         $('#example').DataTable({
-            data: responseData,
+            data: responseData.contacts,
             columns: [
                 {data: 'sfid'},
                 {data: 'firstname'},
