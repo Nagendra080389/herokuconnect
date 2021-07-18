@@ -6,17 +6,17 @@ import javax.persistence.Id;
 @Entity
 public class Contact {
 
-	private Long sfid;
+	private String sfid;
 	private String firstname;
 	private String lastname;
 	private String name;
 
 	@Id
-	public Long getSfid() {
+	public String getSfid() {
 		return sfid;
 	}
 
-	public void setSfid(Long sfid) {
+	public void setSfid(String sfid) {
 		this.sfid = sfid;
 	}
 
