@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface ContactRepository extends CrudRepository<Contact, Long> {
-	List<Contact> findByFirstName(String FirstName);
+	List<Contact> findByFirstname(String firstname);
 	List<Contact> findAll();
 }
