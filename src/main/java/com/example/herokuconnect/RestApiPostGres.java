@@ -22,7 +22,30 @@ public class RestApiPostGres {
 		Gson gson = new Gson();
 		System.out.println("contactRepository -> "+contactRepository);
 		List<Contact> all = contactRepository.findAll();
-		System.out.println("all -> "+all.isEmpty());
-		return gson.toJson(all);
+		ContactWrapper contactWrapper = new ContactWrapper();
+		contactWrapper.setContacts(all);
+		contactWrapper.setTotalSize(String.valueOf(all.size()));
+		return gson.toJson(contactWrapper);
+	}
+
+	private class ContactWrapper{
+		private String totalSize;
+		private List<Contact> contacts;
+
+		public String getTotalSize() {
+			return totalSize;
+		}
+
+		public void setTotalSize(String totalSize) {
+			this.totalSize = totalSize;
+		}
+
+		public List<Contact> getContacts() {
+			return contacts;
+		}
+
+		public void setContacts(List<Contact> contacts) {
+			this.contacts = contacts;
+		}
 	}
 }
