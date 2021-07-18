@@ -1,6 +1,8 @@
 $(document).ready(function () {
     fetch('/fetchAllContacts')
-        .then(data => {
+        .then(response => {
+            response.json()
+        }).then(data => {
         $('#example').DataTable({
             data: data,
             columns: [
@@ -10,7 +12,5 @@ $(document).ready(function () {
                 { data: 'name' }
             ]
         });
-    }).catch(error => {
-        debugger;
     });
 });

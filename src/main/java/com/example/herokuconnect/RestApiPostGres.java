@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.Serializable;
 import java.util.List;
 
 @RestController
@@ -28,7 +29,7 @@ public class RestApiPostGres {
 		return gson.toJson(contactWrapper);
 	}
 
-	private class ContactWrapper{
+	private static class ContactWrapper implements Serializable {
 		private String totalSize;
 		private List<Contact> contacts;
 
